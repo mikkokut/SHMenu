@@ -10,6 +10,12 @@
 		4937369B1C12E07D006DEC15 /* SHMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 4937369A1C12E07D006DEC15 /* SHMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		493736A21C12E07D006DEC15 /* SHMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493736971C12E07D006DEC15 /* SHMenu.framework */; };
 		493736A71C12E07D006DEC15 /* SHMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736A61C12E07D006DEC15 /* SHMenuTests.swift */; };
+		493736B21C12E19F006DEC15 /* SHMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B11C12E19F006DEC15 /* SHMenuViewController.swift */; };
+		493736B31C12E19F006DEC15 /* SHMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B11C12E19F006DEC15 /* SHMenuViewController.swift */; };
+		493736B51C12E1CA006DEC15 /* SHMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B41C12E1CA006DEC15 /* SHMenuSection.swift */; };
+		493736B61C12E1CA006DEC15 /* SHMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B41C12E1CA006DEC15 /* SHMenuSection.swift */; };
+		493736B81C12E1E0006DEC15 /* SHMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B71C12E1E0006DEC15 /* SHMenuRow.swift */; };
+		493736B91C12E1E0006DEC15 /* SHMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B71C12E1E0006DEC15 /* SHMenuRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,9 @@
 		493736A11C12E07D006DEC15 /* SHMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		493736A61C12E07D006DEC15 /* SHMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMenuTests.swift; sourceTree = "<group>"; };
 		493736A81C12E07D006DEC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493736B11C12E19F006DEC15 /* SHMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMenuViewController.swift; sourceTree = "<group>"; };
+		493736B41C12E1CA006DEC15 /* SHMenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMenuSection.swift; sourceTree = "<group>"; };
+		493736B71C12E1E0006DEC15 /* SHMenuRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMenuRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +80,9 @@
 		493736991C12E07D006DEC15 /* SHMenu */ = {
 			isa = PBXGroup;
 			children = (
+				493736B11C12E19F006DEC15 /* SHMenuViewController.swift */,
+				493736B41C12E1CA006DEC15 /* SHMenuSection.swift */,
+				493736B71C12E1E0006DEC15 /* SHMenuRow.swift */,
 				4937369A1C12E07D006DEC15 /* SHMenu.h */,
 				4937369C1C12E07D006DEC15 /* Info.plist */,
 			);
@@ -194,6 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493736B21C12E19F006DEC15 /* SHMenuViewController.swift in Sources */,
+				493736B81C12E1E0006DEC15 /* SHMenuRow.swift in Sources */,
+				493736B51C12E1CA006DEC15 /* SHMenuSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493736B31C12E19F006DEC15 /* SHMenuViewController.swift in Sources */,
+				493736B61C12E1CA006DEC15 /* SHMenuSection.swift in Sources */,
+				493736B91C12E1E0006DEC15 /* SHMenuRow.swift in Sources */,
 				493736A71C12E07D006DEC15 /* SHMenuTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +326,7 @@
 		493736AC1C12E07D006DEC15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +337,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fi.shingle.SHMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		493736AD1C12E07D006DEC15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -376,6 +397,7 @@
 				493736AD1C12E07D006DEC15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		493736AE1C12E07D006DEC15 /* Build configuration list for PBXNativeTarget "SHMenuTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +406,7 @@
 				493736B01C12E07D006DEC15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
