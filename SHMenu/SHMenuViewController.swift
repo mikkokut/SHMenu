@@ -14,9 +14,9 @@ import UIKit
 
 
 
-class SHMenuViewController: UITableViewController {
+public class SHMenuViewController: UITableViewController {
     
-    var data = [SHMenuViewSection]()
+    public var data = [SHMenuViewSection]()
 
     
     /**
@@ -24,7 +24,7 @@ class SHMenuViewController: UITableViewController {
     Call self.endRefresh() after refreshing is finished.
     Please make sure you populate and reload your table view yourself.
     */
-    func shouldRefresh() {
+    public func shouldRefresh() {
         self.endRefresh()
     }
     
@@ -32,7 +32,7 @@ class SHMenuViewController: UITableViewController {
     /**
     Call after refreshing is finished
     */
-    func endRefresh() {
+    public func endRefresh() {
         self.refreshControl?.endRefreshing()
     }
     
@@ -45,7 +45,7 @@ class SHMenuViewController: UITableViewController {
     
     
     
-    func analyzeCells() -> Bool {
+    public func analyzeCells() -> Bool {
         for (sectionIndex, section) in self.data.enumerate() {
             for (rowIndex, row) in section.rows.enumerate() {
                 if let analyze = row.analyze {
@@ -60,38 +60,38 @@ class SHMenuViewController: UITableViewController {
     }
     
     
+    public func populate() {
+        self.data = [SHMenuViewSection]()
+    }
+    
     func prepareData( doneCb: ( (ok: Bool, error: NSError?) -> () ) ) {
         doneCb(ok: true, error: nil)
     }
     
-    func populate() {
-        self.data = [SHMenuViewSection]()
-    }
-    
 
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.populate()
     }
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.data.count
     }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data[section].rows.count
     }
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.data[section].header
     }
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    override public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return self.data[section].footer
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let row = data[indexPath.section].rows[indexPath.row]
         return row.cell(self.tableView)
         
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let row = data[indexPath.section].rows[indexPath.row]
         if let action = row.action {
@@ -103,11 +103,11 @@ class SHMenuViewController: UITableViewController {
         }
         
     }
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let row = data[indexPath.section].rows[indexPath.row]
         return row.preferredHeight
     }
-    override func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+    override public func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         
         if let view = view as? UITableViewHeaderFooterView {
             let section = self.data[section]

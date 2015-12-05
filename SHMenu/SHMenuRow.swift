@@ -8,29 +8,29 @@
 
 import Foundation
 
-class SHMenuViewRow {
+public class SHMenuViewRow {
     var cell: ((UITableView) -> (UITableViewCell))
     var action: ((NSIndexPath) -> ())?
     var analyze: ((UITableViewCell?) -> Bool)?
     var preferredHeight: CGFloat = 44
     var automaticallyDeselectSelectedRow = true
     
-    init(cell: ((UITableView) -> (UITableViewCell))) {
+    public init(cell: ((UITableView) -> (UITableViewCell))) {
         self.cell = cell
     }
     
-    convenience init(cell: ((UITableView) -> (UITableViewCell)), action: ((NSIndexPath) -> ())?, analyze: ((UITableViewCell?) -> Bool)?) {
+    public convenience init(cell: ((UITableView) -> (UITableViewCell)), action: ((NSIndexPath) -> ())?, analyze: ((UITableViewCell?) -> Bool)?) {
         self.init(cell: cell)
         self.action = action
         self.analyze = analyze
     }
     
-    convenience init(cell: ((UITableView) -> (UITableViewCell)), action: ((NSIndexPath) -> ())?) {
+    public convenience init(cell: ((UITableView) -> (UITableViewCell)), action: ((NSIndexPath) -> ())?) {
         self.init(cell: cell)
         self.action = action
     }
     
-    convenience init(cell: ((UITableView) -> (UITableViewCell)), analyze: ((UITableViewCell?) -> Bool)?) {
+    public convenience init(cell: ((UITableView) -> (UITableViewCell)), analyze: ((UITableViewCell?) -> Bool)?) {
         self.init(cell: cell)
         self.analyze = analyze
     }
