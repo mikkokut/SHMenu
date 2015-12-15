@@ -8,21 +8,21 @@
 
 import Foundation
 
-public class SHMenuViewSection {
-    var rows: [SHMenuViewRow]
+public class SHMenuSection {
+    var rows: [SHMenuRow]
     var header: String?
     var footer: String?
     var footerTextAlignment: NSTextAlignment?
     
-    public init(rows: [SHMenuViewRow]) {
+    public init(rows: [SHMenuRow]) {
         self.rows = rows
     }
     
-    public convenience init(header: String?, rows: [SHMenuViewRow]) {
+    public convenience init(header: String?, rows: [SHMenuRow]) {
         self.init(rows: rows)
         self.header = header
     }
-    public convenience init(header: String?, footer: String?, rows: [SHMenuViewRow]) {
+    public convenience init(header: String?, footer: String?, rows: [SHMenuRow]) {
         self.init(rows: rows)
         self.header = header
         self.footer = footer

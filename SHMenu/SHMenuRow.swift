@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SHMenuViewRow {
+public class SHMenuRow {
     var cell: ((UITableView) -> (UITableViewCell))
     var action: ((NSIndexPath) -> ())?
     var analyze: ((UITableViewCell?) -> Bool)?

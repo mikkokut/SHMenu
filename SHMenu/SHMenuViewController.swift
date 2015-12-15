@@ -16,7 +16,7 @@ import UIKit
 
 public class SHMenuViewController: UITableViewController {
     
-    public var data = [SHMenuViewSection]()
+    public var sections = [SHMenuSection]()
 
     
     /**
@@ -46,7 +46,7 @@ public class SHMenuViewController: UITableViewController {
     
     
     public func analyzeCells() -> Bool {
-        for (sectionIndex, section) in self.data.enumerate() {
+        for (sectionIndex, section) in self.sections.enumerate() {
             for (rowIndex, row) in section.rows.enumerate() {
                 if let analyze = row.analyze {
                     let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: rowIndex, inSection: sectionIndex))
@@ -61,7 +61,7 @@ public class SHMenuViewController: UITableViewController {
     
     
     public func populate() {
-        self.data = [SHMenuViewSection]()
+        self.sections = [SHMenuSection]()
     }
     
     func prepareData( doneCb: ( (ok: Bool, error: NSError?) -> () ) ) {
@@ -74,26 +74,26 @@ public class SHMenuViewController: UITableViewController {
         self.populate()
     }
     override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.data.count
+        return self.sections.count
     }
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].rows.count
+        return self.sections[section].rows.count
     }
     override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.data[section].header
+        return self.sections[section].header
     }
     override public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return self.data[section].footer
+        return self.sections[section].footer
     }
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let row = data[indexPath.section].rows[indexPath.row]
+        let row = self.sections[indexPath.section].rows[indexPath.row]
         return row.cell(self.tableView)
         
     }
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let row = data[indexPath.section].rows[indexPath.row]
+        let row = self.sections[indexPath.section].rows[indexPath.row]
         if let action = row.action {
             action(indexPath)
             
@@ -104,13 +104,13 @@ public class SHMenuViewController: UITableViewController {
         
     }
     override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let row = data[indexPath.section].rows[indexPath.row]
+        let row = self.sections[indexPath.section].rows[indexPath.row]
         return row.preferredHeight
     }
     override public func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         
         if let view = view as? UITableViewHeaderFooterView {
-            let section = self.data[section]
+            let section = self.sections[section]
             view.textLabel?.textAlignment = section.footerTextAlignment ?? .Left
         }
         
