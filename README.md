@@ -10,8 +10,8 @@ pod 'SHMenu'
 
 ## Usage
 
-### Extend SHMenuViewController
-Create new subclass of <code>SHMenuViewController</code>. At minumum implement <code>func populate()</code>
+### SHMenuViewController
+Create new subclass of <code>SHMenuViewController</code>. At minimum implement <code>func populate()</code>
 
 ```swift
 
@@ -21,16 +21,13 @@ func MyDynamicTableViewController: SHMenuViewController {
   override func populate() {
     super.populate() //Don't forget to call super.populate()!
 
+    let helper = SHMenuCellHelper(tableView: self.tableView)
+
     var rows = [SHMenuViewRow]()
 
     rows.append(SHMenuViewRow(cell: { (tableView) -> (UITableViewCell) in
 
-      var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
-      if cell == nil {
-          cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
-      }
-      cell!.textLabel!.text = "It works!"
-      return cell!
+      return helper.defaultCellWithTitle("It works!")
 
     }))
 
