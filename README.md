@@ -34,7 +34,7 @@ func MyDynamicTableViewController: SHMenuViewController {
     }))
 
     let section = SHMenuSection(rows: rows)
-    self.data.append(section)
+    self.sections.append(section)
   }
 
 }
