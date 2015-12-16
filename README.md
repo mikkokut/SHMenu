@@ -3,7 +3,9 @@ Implement dynamic table view controllers easily.
 
 
 ## Installation
-Available via CocoaPods. Add to your Podfile and run <code>pod install</code>.
+<b>Coming...</b>
+
+Available via CocoaPods. Add to your Podfile and run <code>pod install</code>. 
 ```
 pod 'SHMenu'
 ```
