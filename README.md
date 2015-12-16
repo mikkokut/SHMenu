@@ -13,7 +13,7 @@ pod 'SHMenu'
 ## Usage
 
 ### SHMenuViewController
-Create new subclass of <code>SHMenuViewController</code>. At minimum implement <code>func populate()</code>
+Create a new subclass of <code>SHMenuViewController</code>. At minimum implement <code>func populate()</code>
 
 ```swift
 
