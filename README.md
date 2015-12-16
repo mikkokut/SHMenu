@@ -25,15 +25,15 @@ func MyDynamicTableViewController: SHMenuViewController {
 
     let helper = SHMenuCellHelper(tableView: self.tableView)
 
-    var rows = [SHMenuViewRow]()
+    var rows = [SHMenuRow]()
 
-    rows.append(SHMenuViewRow(cell: { (tableView) -> (UITableViewCell) in
+    rows.append(SHMenuRow(cell: { (tableView) -> (UITableViewCell) in
 
       return helper.defaultCellWithTitle("It works!")
 
     }))
 
-    let section = SHMenuViewSection(rows: rows)
+    let section = SHMenuSection(rows: rows)
     self.data.append(section)
   }
 
