@@ -12,7 +12,8 @@ import UIKit
 
 public enum SHMenuCellStyle: String {
     case Default = "SHMenu:Default"
-    case Value1 = "SHMenu:Valu1"
+    case Value1 = "SHMenu:Value1"
+    case Value2 = "SHMenu:Value2"
     case Subtitle = "SHMenu:Subtitle"
     case Action = "SHMenu:Action"
     case DestructiveAction = "SHMenu:DestructiveAction"
@@ -51,6 +52,14 @@ public class SHMenuCellHelper {
         
         return cell
     }
+    public func value2CellWithTitle(title: String?, value: String?) -> UITableViewCell {
+        let cell = self.cellForStyle(.Value2)
+        
+        cell.textLabel?.text = title
+        cell.detailTextLabel?.text = value
+        
+        return cell
+    }
     public func subtitleCellWithTitle(title: String?, value: String?) -> UITableViewCell {
         let cell = self.cellForStyle(.Subtitle)
         cell.textLabel?.text = title
@@ -70,6 +79,8 @@ public class SHMenuCellHelper {
                 cell = UITableViewCell(style: .Subtitle, reuseIdentifier: style.rawValue)
             case .Value1:
                 cell = UITableViewCell(style: .Value1, reuseIdentifier: style.rawValue)
+            case .Value2:
+                cell = UITableViewCell(style: .Value2, reuseIdentifier: style.rawValue)
             case .Action:
                 cell = UITableViewCell(style: .Default, reuseIdentifier: style.rawValue)
             case .DestructiveAction:
@@ -81,6 +92,8 @@ public class SHMenuCellHelper {
         case .Default:
             break
         case .Value1:
+            break
+        case .Value2:
             break
         case .Subtitle:
             break
