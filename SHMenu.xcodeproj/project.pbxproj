@@ -16,6 +16,7 @@
 		493736B61C12E1CA006DEC15 /* SHMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B41C12E1CA006DEC15 /* SHMenuSection.swift */; };
 		493736B81C12E1E0006DEC15 /* SHMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B71C12E1E0006DEC15 /* SHMenuRow.swift */; };
 		493736B91C12E1E0006DEC15 /* SHMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493736B71C12E1E0006DEC15 /* SHMenuRow.swift */; };
+		499BB3971C457C5D00A948A5 /* SHMenuViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BB3961C457C5D00A948A5 /* SHMenuViewControllerDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		493736B11C12E19F006DEC15 /* SHMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMenuViewController.swift; sourceTree = "<group>"; };
 		493736B41C12E1CA006DEC15 /* SHMenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMenuSection.swift; sourceTree = "<group>"; };
 		493736B71C12E1E0006DEC15 /* SHMenuRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMenuRow.swift; sourceTree = "<group>"; };
+		499BB3961C457C5D00A948A5 /* SHMenuViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMenuViewControllerDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				493736B11C12E19F006DEC15 /* SHMenuViewController.swift */,
 				493736B41C12E1CA006DEC15 /* SHMenuSection.swift */,
 				493736B71C12E1E0006DEC15 /* SHMenuRow.swift */,
+				499BB3961C457C5D00A948A5 /* SHMenuViewControllerDataSource.swift */,
 				4937369A1C12E07D006DEC15 /* SHMenu.h */,
 				4937369C1C12E07D006DEC15 /* Info.plist */,
 			);
@@ -209,6 +212,7 @@
 				493736B21C12E19F006DEC15 /* SHMenuViewController.swift in Sources */,
 				493736B81C12E1E0006DEC15 /* SHMenuRow.swift in Sources */,
 				493736B51C12E1CA006DEC15 /* SHMenuSection.swift in Sources */,
+				499BB3971C457C5D00A948A5 /* SHMenuViewControllerDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
