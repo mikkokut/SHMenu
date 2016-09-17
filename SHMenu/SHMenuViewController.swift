@@ -14,9 +14,9 @@ import UIKit
 
 
 
-public class SHMenuViewController: UITableViewController {
+open class SHMenuViewController: UITableViewController {
     
-    public var sections = [SHMenuSection]()
+    open var sections = [SHMenuSection]()
 
     
     /**
@@ -24,7 +24,7 @@ public class SHMenuViewController: UITableViewController {
     Call self.endRefresh() after refreshing is finished.
     Please make sure you populate and reload your table view yourself.
     */
-    public func shouldRefresh() {
+    open func shouldRefresh() {
         self.endRefresh()
     }
     
@@ -32,7 +32,7 @@ public class SHMenuViewController: UITableViewController {
     /**
     Call after refreshing is finished
     */
-    public func endRefresh() {
+    open func endRefresh() {
         self.refreshControl?.endRefreshing()
     }
     
@@ -45,11 +45,11 @@ public class SHMenuViewController: UITableViewController {
     
     
     
-    public func analyzeCells() -> Bool {
-        for (sectionIndex, section) in self.sections.enumerate() {
-            for (rowIndex, row) in section.rows.enumerate() {
+    open func analyzeCells() -> Bool {
+        for (sectionIndex, section) in self.sections.enumerated() {
+            for (rowIndex, row) in section.rows.enumerated() {
                 if let analyze = row.analyze {
-                    let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: rowIndex, inSection: sectionIndex))
+                    let cell = tableView.cellForRow(at: IndexPath(row: rowIndex, section: sectionIndex))
                     if analyze(cell) == false {
                         return false
                     }
@@ -60,58 +60,58 @@ public class SHMenuViewController: UITableViewController {
     }
     
     
-    public func populate() {
+    open func populate() {
         self.sections = [SHMenuSection]()
     }
     
-    func prepareData( doneCb: ( (ok: Bool, error: NSError?) -> () ) ) {
-        doneCb(ok: true, error: nil)
+    func prepareData( _ doneCb: ( (_ ok: Bool, _ error: NSError?) -> () ) ) {
+        doneCb(true, nil)
     }
     
 
-    override public func viewWillAppear(animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.populate()
     }
-    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override open func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.count
     }
-    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].rows.count
     }
-    override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section].header
     }
-    override public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    override open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return self.sections[section].footer
     }
-    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let row = self.sections[indexPath.section].rows[indexPath.row]
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         return row.cell(self.tableView)
         
     }
-    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let row = self.sections[indexPath.section].rows[indexPath.row]
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         if let action = row.action {
             action(indexPath)
             
             if row.automaticallyDeselectSelectedRow {
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
             }
         }
         
     }
-    override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let row = self.sections[indexPath.section].rows[indexPath.row]
+    override open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         return row.preferredHeight
     }
-    override public func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+    override open func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         
         if let view = view as? UITableViewHeaderFooterView {
             let section = self.sections[section]
-            view.textLabel?.textAlignment = section.footerTextAlignment ?? .Left
+            view.textLabel?.textAlignment = section.footerTextAlignment ?? .left
         }
         
     }

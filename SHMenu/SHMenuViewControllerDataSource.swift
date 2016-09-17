@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class SHMenuViewControllerDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+open class SHMenuViewControllerDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     let tableView: UITableView
     var sections: [SHMenuSection]
@@ -21,45 +21,45 @@ public class SHMenuViewControllerDataSource: NSObject, UITableViewDataSource, UI
     }
     
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.count
     }
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].rows.count
     }
-    public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section].header
     }
-    public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return self.sections[section].footer
     }
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = self.sections[indexPath.section].rows[indexPath.row]
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         return row.cell(self.tableView)
         
     }
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let row = self.sections[indexPath.section].rows[indexPath.row]
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         if let action = row.action {
             action(indexPath)
             
             if row.automaticallyDeselectSelectedRow {
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
             }
         }
         
     }
-    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let row = self.sections[indexPath.section].rows[indexPath.row]
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         return row.preferredHeight
     }
-    public func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+    open func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         
         if let view = view as? UITableViewHeaderFooterView {
             let section = self.sections[section]
-            view.textLabel?.textAlignment = section.footerTextAlignment ?? .Left
+            view.textLabel?.textAlignment = section.footerTextAlignment ?? .left
         }
         
     }
