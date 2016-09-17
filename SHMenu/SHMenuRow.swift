@@ -12,8 +12,9 @@ public class SHMenuRow {
     var cell: ((UITableView) -> (UITableViewCell))
     var action: ((NSIndexPath) -> ())?
     var analyze: ((UITableViewCell?) -> Bool)?
-    var preferredHeight: CGFloat = 44
-    var automaticallyDeselectSelectedRow = true
+    
+    public var preferredHeight: CGFloat = 44
+    public var automaticallyDeselectSelectedRow = true
     
     public init(cell: ((UITableView) -> (UITableViewCell))) {
         self.cell = cell
