@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 open class SHMenuSection {
     var rows: [SHMenuRow]
