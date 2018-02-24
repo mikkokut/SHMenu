@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-public class SHMenuSection {
+open class SHMenuSection {
     var rows: [SHMenuRow]
     var header: String?
     var footer: String?
