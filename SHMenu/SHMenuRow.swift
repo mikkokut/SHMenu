@@ -7,31 +7,33 @@
 //
 
 import Foundation
+import UIKit
 
-public class SHMenuRow {
+open class SHMenuRow {
     var cell: ((UITableView) -> (UITableViewCell))
-    var action: ((NSIndexPath) -> ())?
+    var action: ((IndexPath) -> ())?
     var analyze: ((UITableViewCell?) -> Bool)?
+    var accessoryAction: ((IndexPath) -> ())?
     
-    public var preferredHeight: CGFloat = 44
-    public var automaticallyDeselectSelectedRow = true
+    open var preferredHeight: CGFloat = 44
+    open var automaticallyDeselectSelectedRow = true
     
-    public init(cell: ((UITableView) -> (UITableViewCell))) {
+    public init(cell: @escaping ((UITableView) -> (UITableViewCell))) {
         self.cell = cell
     }
     
-    public convenience init(cell: ((UITableView) -> (UITableViewCell)), action: ((NSIndexPath) -> ())?, analyze: ((UITableViewCell?) -> Bool)?) {
+    public convenience init(cell: @escaping ((UITableView) -> (UITableViewCell)), action: ((IndexPath) -> ())?, analyze: ((UITableViewCell?) -> Bool)?) {
         self.init(cell: cell)
         self.action = action
         self.analyze = analyze
     }
     
-    public convenience init(cell: ((UITableView) -> (UITableViewCell)), action: ((NSIndexPath) -> ())?) {
+    public convenience init(cell: @escaping ((UITableView) -> (UITableViewCell)), action: ((IndexPath) -> ())?) {
         self.init(cell: cell)
         self.action = action
     }
     
-    public convenience init(cell: ((UITableView) -> (UITableViewCell)), analyze: ((UITableViewCell?) -> Bool)?) {
+    public convenience init(cell: @escaping ((UITableView) -> (UITableViewCell)), analyze: ((UITableViewCell?) -> Bool)?) {
         self.init(cell: cell)
         self.analyze = analyze
     }

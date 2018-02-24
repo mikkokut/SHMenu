@@ -11,12 +11,12 @@ import UIKit
 
 
 public enum SHMenuCellStyle: String {
-    case Default = "SHMenu:Default"
-    case Value1 = "SHMenu:Value1"
-    case Value2 = "SHMenu:Value2"
-    case Subtitle = "SHMenu:Subtitle"
-    case Action = "SHMenu:Action"
-    case DestructiveAction = "SHMenu:DestructiveAction"
+    case defaultStyle = "SHMenu:Default"
+    case value1 = "SHMenu:Value1"
+    case value2 = "SHMenu:Value2"
+    case subtitle = "SHMenu:Subtitle"
+    case action = "SHMenu:Action"
+    case destructiveAction = "SHMenu:DestructiveAction"
 }
 
 
@@ -30,22 +30,22 @@ public class SHMenuCellHelper {
     
     
     public func defaultCellWithTitle(title: String?) -> UITableViewCell {
-        let cell = self.cellForStyle(.Default)
+        let cell = self.cellForStyle(style: .defaultStyle)
         cell.textLabel?.text = title
         return cell
     }
     public func actionCellWithTitle(title: String?) -> UITableViewCell {
-        let cell = self.cellForStyle(.Action)
+        let cell = self.cellForStyle(style: .action)
         cell.textLabel?.text = title
         return cell
     }
     public func destructiveActionCellWithTitle(title: String?) -> UITableViewCell {
-        let cell = self.cellForStyle(.DestructiveAction)
+        let cell = self.cellForStyle(style: .destructiveAction)
         cell.textLabel?.text = title
         return cell
     }
     public func value1CellWithTitle(title: String?, value: String?) -> UITableViewCell {
-        let cell = self.cellForStyle(.Value1)
+        let cell = self.cellForStyle(style: .value1)
         
         cell.textLabel?.text = title
         cell.detailTextLabel?.text = value
@@ -53,7 +53,7 @@ public class SHMenuCellHelper {
         return cell
     }
     public func value2CellWithTitle(title: String?, value: String?) -> UITableViewCell {
-        let cell = self.cellForStyle(.Value2)
+        let cell = self.cellForStyle(style: .value2)
         
         cell.textLabel?.text = title
         cell.detailTextLabel?.text = value
@@ -61,7 +61,7 @@ public class SHMenuCellHelper {
         return cell
     }
     public func subtitleCellWithTitle(title: String?, value: String?) -> UITableViewCell {
-        let cell = self.cellForStyle(.Subtitle)
+        let cell = self.cellForStyle(style: .subtitle)
         cell.textLabel?.text = title
         cell.detailTextLabel?.text = value
         return cell
@@ -69,39 +69,39 @@ public class SHMenuCellHelper {
     
     public func cellForStyle(style: SHMenuCellStyle) -> UITableViewCell {
         
-        var cell = self.tableView.dequeueReusableCellWithIdentifier(style.rawValue)
+        var cell = self.tableView.dequeueReusableCell(withIdentifier: style.rawValue)
         if cell == nil {
             
             switch style {
-            case .Default:
-                cell = UITableViewCell(style: .Default, reuseIdentifier: style.rawValue)
-            case .Subtitle:
-                cell = UITableViewCell(style: .Subtitle, reuseIdentifier: style.rawValue)
-            case .Value1:
-                cell = UITableViewCell(style: .Value1, reuseIdentifier: style.rawValue)
-            case .Value2:
-                cell = UITableViewCell(style: .Value2, reuseIdentifier: style.rawValue)
-            case .Action:
-                cell = UITableViewCell(style: .Default, reuseIdentifier: style.rawValue)
-            case .DestructiveAction:
-                cell = UITableViewCell(style: .Default, reuseIdentifier: style.rawValue)
+            case .defaultStyle:
+                cell = UITableViewCell(style: .default, reuseIdentifier: style.rawValue)
+            case .subtitle:
+                cell = UITableViewCell(style: .subtitle, reuseIdentifier: style.rawValue)
+            case .value1:
+                cell = UITableViewCell(style: .value1, reuseIdentifier: style.rawValue)
+            case .value2:
+                cell = UITableViewCell(style: .value2, reuseIdentifier: style.rawValue)
+            case .action:
+                cell = UITableViewCell(style: .default, reuseIdentifier: style.rawValue)
+            case .destructiveAction:
+                cell = UITableViewCell(style: .default, reuseIdentifier: style.rawValue)
             }
         }
         
         switch style {
-        case .Default:
+        case .defaultStyle:
             break
-        case .Value1:
+        case .value1:
             break
-        case .Value2:
+        case .value2:
             break
-        case .Subtitle:
+        case .subtitle:
             break
-        case .Action:
-            cell?.textLabel?.textAlignment = .Center
-        case .DestructiveAction:
-            cell?.textLabel?.textAlignment = .Center
-            cell?.textLabel?.textColor = UIColor.redColor()
+        case .action:
+            cell?.textLabel?.textAlignment = .center
+        case .destructiveAction:
+            cell?.textLabel?.textAlignment = .center
+            cell?.textLabel?.textColor = UIColor.red
         }
         
         return cell!
