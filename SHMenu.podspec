@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SHMenu"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "Implement simple but dynamic TableViewControllers easily. For example settings view."
   s.swift_version = "3.2"
   s.description  = <<-DESC
