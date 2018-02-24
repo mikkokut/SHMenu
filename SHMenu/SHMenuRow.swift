@@ -28,6 +28,13 @@ open class SHMenuRow {
         self.analyze = analyze
     }
     
+    public convenience init(cell: @escaping ((UITableView) -> (UITableViewCell)), action: ((IndexPath) -> ())?, accessoryAction: ((IndexPath) -> ())?, analyze: ((UITableViewCell?) -> Bool)?) {
+        self.init(cell: cell)
+        self.action = action
+        self.accessoryAction = accessoryAction
+        self.analyze = analyze
+    }
+    
     public convenience init(cell: @escaping ((UITableView) -> (UITableViewCell)), action: ((IndexPath) -> ())?) {
         self.init(cell: cell)
         self.action = action
