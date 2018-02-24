@@ -39,6 +39,12 @@ open class SHMenuViewControllerDataSource: NSObject, UITableViewDataSource, UITa
         return row.cell(self.tableView)
         
     }
+    open func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
+        if let action = row.accessoryAction {
+            action(indexPath)
+        }
+    }
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]

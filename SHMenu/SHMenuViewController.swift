@@ -103,6 +103,12 @@ open class SHMenuViewController: UITableViewController {
         }
         
     }
+    override open func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
+        if let action = row.accessoryAction {
+            action(indexPath)
+        }
+    }
     override open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let row = self.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         return row.preferredHeight
